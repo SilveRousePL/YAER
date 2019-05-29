@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4277819616469766464
+--- !u!1 &8495268197650641082
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4277819616469766465}
-  - component: {fileID: 1544207577372313849}
-  - component: {fileID: 2011081061234285227}
-  - component: {fileID: 678967514155926799}
-  - component: {fileID: 730348625001765913}
-  - component: {fileID: 412785175223536589}
+  - component: {fileID: 8495268197650641083}
+  - component: {fileID: 6617687469011577091}
+  - component: {fileID: 6147506662776372049}
+  - component: {fileID: 5175958098393179381}
+  - component: {fileID: 4943306528098598371}
+  - component: {fileID: 5404916324826376759}
   m_Layer: 0
-  m_Name: Money
+  m_Name: Money 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4277819616469766465
+--- !u!4 &8495268197650641083
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277819616469766464}
+  m_GameObject: {fileID: 8495268197650641082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.71, y: 2.3, z: -1}
-  m_LocalScale: {x: 0.22137, y: 0.22137, z: 0.22137}
+  m_LocalPosition: {x: -1.231, y: 1.774, z: -1}
+  m_LocalScale: {x: 0.26453716, y: 0.26453716, z: 0.26453716}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1544207577372313849
+--- !u!212 &6617687469011577091
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277819616469766464}
+  m_GameObject: {fileID: 8495268197650641082}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -83,13 +83,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2011081061234285227
+--- !u!114 &6147506662776372049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277819616469766464}
+  m_GameObject: {fileID: 8495268197650641082}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 344fadb16ee13e7469f36e6b877001c2, type: 3}
@@ -97,13 +97,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: -15
   maxX: 30
---- !u!58 &678967514155926799
+--- !u!58 &5175958098393179381
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277819616469766464}
+  m_GameObject: {fileID: 8495268197650641082}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -113,14 +113,14 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.1400003
---- !u!50 &730348625001765913
+--- !u!50 &4943306528098598371
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277819616469766464}
+  m_GameObject: {fileID: 8495268197650641082}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -134,18 +134,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &412785175223536589
+--- !u!114 &5404916324826376759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277819616469766464}
+  m_GameObject: {fileID: 8495268197650641082}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ed6b5ec586964843a838ed496c34350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  value: 0
   destroyEffect: {fileID: 4467711362070347043, guid: 484f5b3cdf66af64c9333afd9cf5f2dd,
     type: 3}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Money : MonoBehaviour
 {
     public float speed;
+    public int value;
     public GameObject destroyEffect;
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class Money : MonoBehaviour
         {
             //other.GetComponent<Player>().health--;
             //other.GetComponent<Player>().camAnim.SetTrigger("shake");
+            Player.score += value;
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

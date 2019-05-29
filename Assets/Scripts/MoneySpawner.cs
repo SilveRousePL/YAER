@@ -7,6 +7,7 @@ public class MoneySpawner : MonoBehaviour
     public GameObject prefab;
     public float randomTimeMin;
     public float randomTimeMax;
+    public int moneyValue;
 
     private float timeBtwSpawns;
 
@@ -34,6 +35,7 @@ public class MoneySpawner : MonoBehaviour
         timeBtwSpawns = Random.Range(randomTimeMin, randomTimeMax);
         GameObject obj = prefab;
         obj.GetComponent<Money>().speed = 10;
+        obj.GetComponent<Money>().value = moneyValue;
         Instantiate(obj, transform.position, Quaternion.identity);
         return obj;
     }

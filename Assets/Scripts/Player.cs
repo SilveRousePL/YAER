@@ -1,55 +1,99 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     public float speed;
-    public float maxSwingAngle;
 
     private Rigidbody2D rb;
-    //private Quaternion targetRotate;
     private Vector2 moveVelocity;
-    private float moveRotate;
+
+    static public int score;
+    public int lifes;
+    public float insensibilityTime;
+    public float blinkingPeriod;
+
+    private bool insensibility;
+    private float remainingInsenTime;
+    private float remainingBlinkTime;
+
+    public Animator camAnim;
+
+    public TextMeshProUGUI scoreTextMesh;
+    public TextMeshProUGUI lifesTextMesh;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        score = 0;
+        insensibility = true;
+        remainingInsenTime = insensibilityTime;
+        remainingBlinkTime = blinkingPeriod;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //float current_x = rb.position.x;
-        //float current_y = rb.position.y;
-        //float current_rotation = rb.rotation;
-
-        /*if (Input.GetKey(KeyCode.UpArrow) && current_y < maxY)
-        {
-           // rb.MoveRotation(-Time.deltaTime);
-            targetRotate = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w + 5);
-        }
-        else if (Input.GetKey(KeyCode.DownArrow) && current_y > minY)
-        {
-            //rb.MoveRotation(Time.deltaTime);
-            targetRotate = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w - 5);
-        }*/
-
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveVelocity = moveInput.normalized * speed;
-        //moveRotate = moveInput.normalized.y * 100;
-        
+
+        scoreTextMesh.text = "Score: " + score.ToString();
+        lifesTextMesh.text = "Lifes: " + lifes.ToString();
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        if (remainingInsenTime <= 0)
+        {
+            insensibility = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            remainingInsenTime -= Time.deltaTime;
+            if (remainingBlinkTime <= 0)
+            {
+                if (gameObject.GetComponent<SpriteRenderer>().color.a == 1)
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
+                else
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                remainingBlinkTime = blinkingPeriod;
+            }
+            else
+            {
+                remainingBlinkTime -= Time.deltaTime;
+            }
+        }
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
-        //if (rb.rotation <= maxSwingAngle && rb.rotation >= -maxSwingAngle)
-        //{
-        //    rb.MoveRotation(rb.rotation + moveRotate * Time.fixedDeltaTime);
-        //}
-        //rb.rotation = rb.rotation / 1.001f;
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, new Quaternion(0, 0, 0, 0), 1000 * Time.deltaTime);
+    }
+
+    public bool isInsensibility()
+    {
+        return insensibility;
+    }
+
+    public void decreaseLife()
+    {
+        lifes--;
+        if(lifes == 0)
+        {
+            SceneManager.LoadScene(2);
+        }
+        insensibility = true;
+        remainingInsenTime = insensibilityTime;
+        remainingBlinkTime = blinkingPeriod;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
     }
 }

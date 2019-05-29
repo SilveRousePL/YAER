@@ -29,7 +29,11 @@ public class Car : MonoBehaviour
             //other.GetComponent<Player>().camAnim.SetTrigger("shake");
             //Instantiate(destroyEffect, transform.position, Quaternion.identity);
             //Destroy(gameObject);
-            
+            if (other.GetComponent<Player>().isInsensibility() == false)
+            {
+                //other.GetComponent<Player>().camAnim.SetTrigger("shake");
+                other.GetComponent<Player>().decreaseLife();
+            }
         }
     }
 }
