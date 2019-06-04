@@ -11,7 +11,6 @@ public class Money : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -28,6 +27,7 @@ public class Money : MonoBehaviour
             //other.GetComponent<Player>().camAnim.SetTrigger("shake");
             Player.score += value;
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            other.GetComponent<Player>().money_sound.Play();
             Destroy(gameObject);
         }
     }

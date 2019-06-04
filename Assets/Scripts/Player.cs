@@ -26,6 +26,12 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI scoreTextMesh;
     public TextMeshProUGUI lifesTextMesh;
 
+    public AudioClip crash_clip;
+    public AudioSource crash;
+
+    public AudioClip money_clip;
+    public AudioSource money_sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +40,8 @@ public class Player : MonoBehaviour
         insensibility = true;
         remainingInsenTime = insensibilityTime;
         remainingBlinkTime = blinkingPeriod;
+        crash.clip = crash_clip;
+        money_sound.clip = money_clip;
     }
 
     // Update is called once per frame

@@ -33,6 +33,7 @@ public class Car : MonoBehaviour
             {
                 //other.GetComponent<Player>().camAnim.SetTrigger("shake");
                 other.GetComponent<Player>().decreaseLife();
+                other.GetComponent<Player>().crash.Play();
             }
         }
     }
